@@ -1,0 +1,49 @@
+﻿@model CRUD_MVC.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Editar Alumno";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "Alumnos", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--id-->
+                @Html.HiddenFor(d => d.Id)
+
+            <!--NOMBRE-->
+            <div style="padding-top:2px;">
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+            </div>
+
+            <!--APELLIDO-->
+            <div style="padding-top:2px;">
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Apellido)
+                @Html.TextBoxFor(d => d.Apellido, "", new { @class = "form-control" })
+            </div>
+
+            <!--APELLIDO-->
+            <div style="padding-top:2px;">
+                @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Direccion)
+                @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+            </div>
+
+            <!--APELLIDO-->
+            <div style="padding-top:10px;">
+                @Html.ValidationMessageFor(d => d.Fecha_Nacimiento, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Fecha_Nacimiento)
+                @Html.EditorFor(d => d.Fecha_Nacimiento, "", new { @class = "form-control" })
+            </div>
+
+            <div style="text-align: right">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
